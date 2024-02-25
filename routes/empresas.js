@@ -13,7 +13,7 @@ const verificarToken = require('../middlewares/verificarToken');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       // Especificar la carpeta donde se guardarán los archivos subidos
-      cb(null, __dirname + '/uploads/images');
+      cb(null, path.join(__dirname, '..', 'uploads', 'images'));
     },
     filename: function (req, file, cb) {
       // Generar un nombre único utilizando la función uuid
