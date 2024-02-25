@@ -7,19 +7,23 @@ const Solicitud = require('../models/Solicitud');
 const { obtenerSolicitudesPorUsuario, obtenerSolicitudesPorEmpresa, crearSolicitud, cambiarEstadoSolicitud } = require('../services/serviceSolicitudes');
 const verificarToken = require('../middlewares/verificarToken');
 
-// Configurar multer para la carga de archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // Especificar la carpeta donde se guardarán los archivos subidos
-    cb(null, '../uploads/pdf');
+    cb(null, path.join(__dirname, '..', 'uploads', 'pdf'));
   },
   filename: function (req, file, cb) {
     // Generar un nombre único utilizando la función uuid
     const { v4: uuidv4 } = require('uuid');
     const uniqueFilename = `${uuidv4()}-${file.originalname}`;
+
+    // Console log para verificar la ruta del archivo
+    console.log('Ruta del archivo a guardar:', path.join(__dirname, '..', 'uploads', 'pdf', uniqueFilename));
+
     cb(null, uniqueFilename);
   }
 });
+
 
 // Crear el middleware de multer con la configuración
 const upload = multer({ storage: storage });
@@ -42,8 +46,7 @@ router.get('/descargar/:solicitud_id', async (req, res) => {
     const nombreArchivo = solicitud.archivo;
 
     // Ruta completa del archivo en el servidor
-    const rutaArchivo = path.join(__dirname, '../../uploads/pdf', nombreArchivo);
-
+    const rutaArchivo = path.join(__dirname, '../uploads/pdf', nombreArchivo);
 
     // Verificar si el archivo existe
     if (!fs.existsSync(rutaArchivo)) {

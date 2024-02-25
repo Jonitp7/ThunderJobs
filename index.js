@@ -17,9 +17,6 @@ app.use(cors());
 // Middleware para analizar el cuerpo de las solicitudes en formato JSON
 app.use(express.json());
 
-// Configuración para servir archivos estáticos desde la carpeta 'web'
-app.use(express.static(path.join(__dirname, "..", "client", "web")));
-
 // Middleware para servir archivos estáticos (CSS y JS)
 app.use(
   "/styles",
@@ -30,14 +27,20 @@ app.use(
   express.static(path.join(__dirname, "./public/assets/scripts"))
 );
 app.use("/images", express.static(path.join(__dirname, "./public/assets/img")));
-app.use(
-  "./uploads/images",
-  express.static(path.join(__dirname, "./public/uploads/img"))
-);
+;
 app.use(
   "/fonts",
   express.static(path.join(__dirname, "./public/assets/fonts"))
 );
+
+// Configuración para servir archivos estáticos desde la carpeta 'web'
+app.use(express.static(path.join(__dirname, "public")));
+console.log(__dirname)
+app.use(
+  '/uploads/images',
+  express.static(path.join(__dirname,  "./uploads/images"))
+)
+
 
 // Middleware para manejar las solicitudes de la página principal
 app.get("/", function (req, res) {
@@ -54,6 +57,18 @@ app.get("/empresas.html", function (req, res) {
 
 app.get("/candidatos.html", function (req, res) {
   res.sendFile(path.join(__dirname, "public",  "candidatos.html"));
+});
+
+app.get("/menuEmpresa.html", function (req, res) {
+  res.sendFile(path.join(__dirname, "public",  "menuEmpresa.html"));
+});
+
+app.get("/menuUsuario.html", function (req, res) {
+  res.sendFile(path.join(__dirname, "public",  "menuUsuario.html"));
+});
+
+app.get("/index.html", function (req, res) {
+  res.sendFile(path.join(__dirname, "public",  "index.html"));
 });
 
 // Middleware para enrutar las solicitudes a diferentes rutas de la API

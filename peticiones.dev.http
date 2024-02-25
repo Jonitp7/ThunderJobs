@@ -1,8 +1,9 @@
+@url=http://localhost:3001
 ### GET para traer empresas
-GET http://localhost:3001/api/empresas
+GET {{url}}/api/empresas
 
 ### POST /login
-POST http://localhost:3001/api/usuarios/login
+POST {{url}}/api/usuarios/login
 Content-Type: application/json
 
 {
@@ -11,12 +12,12 @@ Content-Type: application/json
 }
 
 ### GET /perfil
-GET  http://localhost:3001/api/usuarios/perfil
+GET  {{url}}/api/usuarios/perfil
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDIyYTVhZmJkMTFhNjRiMDVkNDg4MCIsImlhdCI6MTcwODI4MDA4OCwiZXhwIjoxNzA4MjgzNjg4fQ.EzB5fjlkCXGa_B94bNCDYLFp4NMVPV_dSza1XwxGhwA
 
 
 ### POST /login empresa
-POST http://localhost:3001/api/empresas/login
+POST {{url}}/api/empresas/login
 Content-Type: application/json
 
 {
@@ -25,19 +26,19 @@ Content-Type: application/json
 }
 
 ### GET /perfil empresa
-GET  http://localhost:3001/api/empresas/perfil
+GET  {{url}}/api/empresas/perfil
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDJhMDRmYjQyZTdiYTkwMWY4MTg5NyIsImlhdCI6MTcwODMwNDU5OX0.cTOWQ5rwtkXsu3nIWKKj5yIyA5lKitJTAqXIN9TmEbQ
 
 ### GET para traer vacantes por vacante_id
-GET http://localhost:3001/api/vacantes/2
+GET {{url}}/api/vacantes/2
 
 
 ### GET para traer solicitud por usuario_id
-GET http://localhost:3001/api/solicitudes/usuario/1
+GET {{url}}/api/solicitudes/usuario/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDUwOTI4OTI3ZGY5ZjZhOGEyYWM2YSIsImlhdCI6MTcwODQ2NDEyMn0.zExnM9sg8wCN0Ds8CeZ4A_n-V--IT0sTbA-bwidVGyI
 
 ### GET para traer solicitud por cif
-GET http://localhost:3001/api/solicitudes/empresa/A000
+GET {{url}}/api/solicitudes/empresa/A000
 
 ### GET para traer vacante por cif
 GET http://localhost:3001/api/vacantes/empresa/A000

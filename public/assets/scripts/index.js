@@ -69,7 +69,7 @@ function menuSolicitudes() {
  * @description Redirige al usuario al menú de empresa.
  */
 function menuEmpresa() {
-    window.location.href = "menuEmpresa.html";
+    window.location.href = "./menuEmpresa.html";
 }
 
 // Declaración de la variable modalMenuUsuario
@@ -137,5 +137,5 @@ function cerrarSesion() {
  * @description Redirige al usuario a la página de inicio.
  */
 function volverHome() {
-    window.location.href = "index.html";
+    window.location.href = "./";
 }
