@@ -5,7 +5,7 @@
 ## Índice
 
 - [Funcionalidades principales](#Funcionalidades-principales)
-- [Tecnologías utilizadas](#Tecnología-utilizadas)
+- [Tecnologías utilizadas](#Tecnologías-utilizadas)
 - [Instalación y despliegue](#Instalación-y-despliegue)
 - [Estado del proyecto](#Estado-del-proyecto)
 - [Contacto](#contacto)
