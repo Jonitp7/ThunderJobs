@@ -35,7 +35,9 @@ Las empresas pueden ver las solicitudes recibidas para sus vacantes y descargar 
 ### Frontend:
 
 -HTML: Lenguaje de marcado utilizado para estructurar el contenido de las páginas web.
+
 -CSS: Lenguaje de estilos utilizado para diseñar y dar formato al contenido HTML.
+
 -JavaScript: Lenguaje de programación utilizado para agregar interactividad y funcionalidades dinámicas a las páginas web.
 
 ### Backend (Server):
