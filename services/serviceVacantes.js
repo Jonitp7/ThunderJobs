@@ -114,24 +114,33 @@ async function modificarVacante(req, res) {
     const { titulo, descripcion, requisitos, categoria, ubicacion, salario, destacado } = req.body;
 
     try {
-        // Construir el objeto con los campos a actualizar
-        const camposActualizados = {};
-        if (titulo) camposActualizados.titulo = titulo;
-        if (descripcion) camposActualizados.descripcion = descripcion;
-        if (requisitos) camposActualizados.requisitos = requisitos;
-        if (categoria) camposActualizados.categoria = categoria;
-        if (ubicacion) camposActualizados.ubicacion = ubicacion;
-        if (salario) camposActualizados.salario = salario;
-        if (destacado) camposActualizados.destacado = destacado;
+        // Buscar la vacante por su vacante_id
+        const vacante = await Vacante.findOne({ vacante_id });
 
-        // Buscar y actualizar la vacante por su vacante_id
-        const vacanteActualizada = await Vacante.findOneAndUpdate({ vacante_id }, camposActualizados, { new: true });
-
-        if (!vacanteActualizada) {
+        if (!vacante) {
             return res.status(404).json({ message: 'Vacante no encontrada' });
         }
 
-        res.json({ message: 'Vacante actualizada correctamente', vacante: vacanteActualizada });
+        // Construir el objeto con los campos a actualizar
+        const camposActualizados = {};
+        if (titulo !== undefined) camposActualizados.titulo = titulo;
+        if (descripcion !== undefined) camposActualizados.descripcion = descripcion;
+        if (requisitos !== undefined) camposActualizados.requisitos = requisitos;
+        if (categoria !== undefined) camposActualizados.categoria = categoria;
+        if (ubicacion !== undefined) camposActualizados.ubicacion = ubicacion;
+        if (salario !== undefined) camposActualizados.salario = salario;
+        if (destacado !== undefined) camposActualizados.destacado = destacado;
+
+        // Fusionar los campos actualizados con los campos existentes de la vacante
+        Object.assign(vacante, camposActualizados);
+
+        // Guardar los cambios en la base de datos
+        await vacante.save();
+
+        // Actualizar los campos relacionados en las solicitudes
+        await Solicitud.updateMany({ "vacante.vacante_id": vacante_id }, { $set: { "vacante": vacante } });
+
+        res.json({ message: 'Vacante actualizada correctamente', vacante });
     } catch (error) {
         console.error('Error al modificar la vacante:', error);
         res.status(500).json({ message: 'Error interno del servidor' });

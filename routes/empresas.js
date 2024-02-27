@@ -72,7 +72,7 @@ router.get('/perfil', verificarToken, async (req, res) => {
     }
 });
 
-// Ruta para crear una nueva solicitud
+// Ruta para crear una nueva empresa
 router.post('/', upload.single('archivo'), crearRegistro);
 
 module.exports = router;
