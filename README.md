@@ -78,7 +78,7 @@ $ git clone https://github.com/Jonitp7/thunderjobs.git
 # Instala todas las dependencias del package.json
 $ npm i
 # Arranca el servidor en local
-$ node start
+$ node index.js
 ```
 3. Despliegue del proyecto en Vercel (opcional)
 
