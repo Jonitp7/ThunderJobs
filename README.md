@@ -5,7 +5,7 @@
 ## Índice
 
 - [Funcionalidades principales](#Funcionalidades-principales)
-- [Tecnologías utilizadas](#Tecnología-utilizadas)
+- [Tecnologías utilizadas](#Tecnologías-utilizadas)
 - [Instalación y despliegue](#Instalación-y-despliegue)
 - [Estado del proyecto](#Estado-del-proyecto)
 - [Contacto](#contacto)
@@ -35,7 +35,9 @@ Las empresas pueden ver las solicitudes recibidas para sus vacantes y descargar 
 ### Frontend:
 
 -HTML: Lenguaje de marcado utilizado para estructurar el contenido de las páginas web.
+
 -CSS: Lenguaje de estilos utilizado para diseñar y dar formato al contenido HTML.
+
 -JavaScript: Lenguaje de programación utilizado para agregar interactividad y funcionalidades dinámicas a las páginas web.
 
 ### Backend (Server):
@@ -73,12 +75,12 @@ Las empresas pueden ver las solicitudes recibidas para sus vacantes y descargar 
 1. Descarga e instala Node.js en tu pc
 2. Importa y configura el proyecto en tu pc
 ```bash
-# Clona el repositorio en tu pc
+# Clona el repositorio en tu pc (si no lo tienes aún)
 $ git clone https://github.com/Jonitp7/thunderjobs.git
 # Instala todas las dependencias del package.json
 $ npm i
 # Arranca el servidor en local
-$ node start
+$ node index.js
 ```
 3. Despliegue del proyecto en Vercel (opcional)
 
